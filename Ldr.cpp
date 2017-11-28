@@ -13,7 +13,7 @@ void Ldr::Execute()
 } 
 void Ldr::Memory()
 {
-    fstream data;
+    ifstream data;
     data.open("DATA.MEM");
     data.seekg(address*32+offset*32,ios::beg);
     data.get(numberString,32);
