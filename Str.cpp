@@ -13,13 +13,13 @@ void Str::Execute()
 } 
 void Str::Memory()
 {
-    ifstream data("DATA.MEM");
+    ifstream data();
     cout<<"MEMORY: "<<number<<" stored at "<<address*32+offset*32<<" address in memory"<<endl;
     data.open("DATA.MEM");
     data.seekg(address*32+offset*32,ios::beg);
     for(int i=31;i>=0;i--)
     {
-        numberString[i] = (number%2==0?'0':1);
+        numberString[i] = (number%2==0?'0':'1');
         number = number/2;
     }
     data.write(numberString,32);
