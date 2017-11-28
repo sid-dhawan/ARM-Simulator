@@ -9,7 +9,6 @@ void Mvn::Execute()
 {
 	res = ~op;
     cout<<"EXECUTE: "<<"MVN "<<op<<"\n";
-	cout<<"MEMORY: "<<"No memory operation \n"; 
 	Memory();
 }
 void Eor::Memory()

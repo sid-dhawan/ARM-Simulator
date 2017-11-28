@@ -10,7 +10,6 @@ void Eor::Execute()
 {
 	res=op1 ^ op2;
 	cout<<"EXECUTE: "<<"EOR "<<op1<<" and "<<op2<<"\n";
-	cout<<"MEMORY: "<<"No memory operation \n"; 
 	Memory();
 }
 void Eor::Memory()

@@ -10,7 +10,6 @@ void And::Execute()
 {
 	res=op1 & op2;
 	cout<<"EXECUTE: "<<"AND "<<op1<<" and "<<op2<<"\n";
-	cout<<"MEMORY: "<<"No memory operation \n"; 
 	Memory();
 }
 void And::Memory()

@@ -10,7 +10,6 @@ void Orr::Execute()
 {
 	res=op1 | op2;
 	cout<<"EXECUTE: "<<"ORR "<<op1<<" and "<<op2<<"\n";
-	cout<<"MEMORY: "<<"No memory operation \n"; 
 	Memory();
 }
 void Orr::Memory()
