@@ -285,6 +285,34 @@ void Swi::memory()
     }
 }
 
+B::B(long offset)
+{
+	this->offset=offset;
+}
+void B::execute()
+{
+	address=insAddress+offset*4;
+	pc.seekg(0);
+	long cnt=0;
+	char ch;
+	while(address!=0&&!pc.eof())
+	{
+		pc.get(ch);
+		if(ch=='\n')
+			cnt++;
+		if(cnt==address/4-1)
+			break;
+	}
+	cout<<"EXECUTE: Change program counter by "<<offset<<"\n";
+}
+void B::memory()
+{
+	cout<<"MEMORY: No memory operation";
+}
+void B::writeBack()
+{
+	cout<<"WRITEBACK: No writeback operation";
+}
 
 /*Swp::Swp(long des,long number,long address)
 {

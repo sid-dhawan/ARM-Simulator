@@ -120,6 +120,17 @@ class Swi:public Instruction
         void writeBack();
         Swi(long instruction);
 };
+class B:public Instruction
+{
+	private:
+		long offset,address;
+	public:
+		B(long offset);
+		void execute();
+		void memory();
+		void writeBack();
+		
+};
 /*class Swp:public Instruction
 {
     private:
