@@ -1,23 +1,13 @@
-#include "Instruction.h"
-#include "Mvn.h"
-#include "Sub.h"
-#include "Swi.h"
-#include "Swp.h"
-#include "Str.h"
-#include "Orr.h"
-#include "Mul.h"
-#include "Mov.h"
-#include "Ldr.h"
-#include "Eor.h"
-#include "And.h"
-#include "Add.h"
-
-
-void Instruction::Execute()
+#include "instruction.h"
+#include "global.h"
+#include <cmath>
+void Instruction::execute()
+{
+	cout<<"Parent execute\n";
+}
+void Instruction::writeBack()
 {}
-void Instruction::Write-back()
-{}
-void Instruction::Memory()
+void Instruction::memory()
 {}
 
 Add::Add(long des, long op1, long op2)
@@ -26,16 +16,16 @@ Add::Add(long des, long op1, long op2)
 	this->op2=op2;
 	this->des=des;
 }
-void Add::Execute()
+void Add::execute()
 {
 	res = op1 + op2;
 	cout<<"EXECUTE: "<<"ADD "<<op1<<" and "<<op2<<"\n";			
 }
-void Add::Memory()
+void Add::memory()
 {
     cout<<"MEMORY: No memory operation"<<endl;
 }
-void Add::Write-back()
+void Add::writeBack()
 {
 	R[des]=res;
 	cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
@@ -48,16 +38,16 @@ And::And(long des, long op1, long op2)
 	this->op2=op2;
 	this->des=des;
 }
-void And::Execute()
+void And::execute()
 {
 	res=op1 & op2;
 	cout<<"EXECUTE: "<<"AND "<<op1<<" and "<<op2<<"\n";
 }
-void And::Memory()
+void And::memory()
 {
     cout<<"MEMORY: No memory operation"<<endl;
 }
-void And::Write-back()
+void And::writeBack()
 {
 	R[des]=res;
 	cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
@@ -70,16 +60,16 @@ Eor::Eor(long des, long op1, long op2)
 	this->op2=op2;
 	this->des=des;
 }
-void Eor::Execute()
+void Eor::execute()
 {
 	res=op1 ^ op2;
 	cout<<"EXECUTE: "<<"EOR "<<op1<<" and "<<op2<<"\n";
 }
-void Eor::Memory()
+void Eor::memory()
 {
 	cout<<"MEMORY: No memory operation"<<endl;
 }
-void Eor::Write-back()
+void Eor::writeBack()
 {
 	R[des]=res;
 	cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
@@ -92,11 +82,11 @@ Ldr::Ldr(long des,long address,long offset)
     this->address = address;
     this->offset = offset;
 }
-void Ldr::Execute()
+void Ldr::execute()
 {
     cout<<"EXECUTE: No execute operation"<<endl;
 } 
-void Ldr::Memory()
+void Ldr::memory()
 {
     ifstream data;
     data.open("DATA.MEM");
@@ -107,7 +97,7 @@ void Ldr::Memory()
         number += pow(2,31-i)*(int(numberString[i])-int('0'));
     cout<<"MEMORY: "<<number<<" loaded from "<<address*32+offset*32<<" address in memory"<<endl;
 }
-void Write-Back()
+void Ldr::writeBack()
 {
     R[des] = number;
     cout<<"EXECUTE: write "<<number<<" to R"<<des<<endl;
@@ -119,16 +109,16 @@ Mov::Mov(long des, long op)
 	this->op=op;
 	this->des=des;
 }
-void Mov::Execute()
+void Mov::execute()
 {
 	res = op;
     cout<<"EXECUTE: "<<"Mov "<<op<<"\n";
 }
-void Eor::Memory()
+void Mov::memory()
 {
 	cout<<"MEMORY: No memory operation"<<endl;
 }	
-void Mov::Write-back()
+void Mov::writeBack()
 {
 	R[des]=res;
     cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
@@ -141,17 +131,17 @@ Mul::Mul(long des,long op1,long op2)
     this->op2 = op2;
     this->des = des;
 }
-void Mul::Execute()
+void Mul::execute()
 {
     res = op1 * op2;
-    cout<"EXECUTE: MUL "<<op1<<" and "<<op2<<endl;
+    cout<<"EXECUTE: MUL "<<op1<<" and "<<op2<<endl;
 } 
-void Mul::Write-back()
+void Mul::writeBack()
 {
     R[des] = res;
     cout<<"WRITEBACK: Write "<<res<<" to R"<<des<<endl;
 }
-void Mul:Memory()
+void Mul::memory()
 {
     cout<<"MEMORY: No memory operation"<<endl;
 }
@@ -162,16 +152,16 @@ Mvn::Mvn(long des, long op)
 	this->op=op;
 	this->des=des;
 }
-void Mvn::Execute()
+void Mvn::execute()
 {
 	res = ~op;
     cout<<"EXECUTE: "<<"MVN "<<op<<"\n";
 }
-void Eor::Memory()
+void Mvn::memory()
 {
 	cout<<"MEMORY: No memory operation"<<endl;
 }	
-void Mvn::Write-back()
+void Mvn::writeBack()
 {
 	R[des]=res;
     cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
@@ -184,16 +174,16 @@ Orr::Orr(long des, long op1, long op2)
 	this->op2=op2;
 	this->des=des;
 }
-void Orr::Execute()	
+void Orr::execute()	
 {
 	res=op1 | op2;
 	cout<<"EXECUTE: "<<"ORR "<<op1<<" and "<<op2<<"\n";
 }
-void Orr::Memory()
+void Orr::memory()
 {
     cout<<"MEMORY: No memory operation"<<endl;
 }
-void Orr::Write-back()
+void Orr::writeBack()
 {		
 	R[des]=res;
 	cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
@@ -206,13 +196,13 @@ Str::Str(long number,long address,long offset)
     this->address = address;
     this->offset = offset;
 }
-void Str::Execute()
+void Str::execute()
 {
     cout<<"EXECUTE: No execute operation"<<endl;
 } 
-void Str::Memory()
+void Str::memory()
 {
-    ifstream data();
+    fstream data;
     cout<<"MEMORY: "<<number<<" stored at "<<address*32+offset*32<<" address in memory"<<endl;
     data.open("DATA.MEM");
     data.seekg(address*32+offset*32,ios::beg);
@@ -223,7 +213,7 @@ void Str::Memory()
     }
     data.write(numberString,32);
 }
-void Write-Back()
+void Str::writeBack()
 {
     cout<<"EXECUTE: No write-back operation"<<endl;
 }
@@ -235,17 +225,17 @@ Sub::Sub(long des,long op1,long op2)
     this->op1 = op1;
     this->op2 = op2;
 }
-void Sub::Execute()
+void Sub::execute()
 {
     res = op1 - op2;
     cout<<"EXECUTE: SUB "<<op2<<" from "<<op1<<endl;
 } 
-void Sub::Write-back()
+void Sub::writeBack()
 {
     R[des] = res;
     cout<<"WRITEBACK: Write "<<res<<" to R"<<des<<endl;
 }
-void Sub::Memory()
+void Sub::memory()
 {
     cout<<"MEMORY: No memory operation"<<endl;
 }
@@ -255,7 +245,7 @@ Swi::Swi(long instruction)
 {
     this->instruction = instruction;
 }
-void Swi::Execute()
+void Swi::execute()
 {
     if(instruction == (int)(0x11))
     {
@@ -273,7 +263,7 @@ void Swi::Execute()
         condition = "Print";
     }
 }
-void Swi::Write-back()
+void Swi::writeBack()
 {
     if(condition == "Read")
     {
@@ -285,7 +275,7 @@ void Swi::Write-back()
         cout<<R[1]<<endl;
     }
 }
-void Swi::Memory()
+void Swi::memory()
 {
     cout<<"MEMORY: No memory operation"<<endl;
     if(condition == "Exit")
@@ -296,19 +286,19 @@ void Swi::Memory()
 }
 
 
-Swp::Swp(long des,long number,long address)
+/*Swp::Swp(long des,long number,long address)
 {
     this->number = number;
     this->address = address;
     this->des = des;
 }
-void Swp::Execute()
+void Swp::execute()
 {
     cout<<"EXECUTE: No execute operation"<<endl;
 } 
-void Swp::Memory()
+void Swp::memory()
 {
-    fstream data();
+    fstream data;
     data.open("DATA.MEM");
     data.seekg(address*32+offset*32,ios::beg);
     data.get(numberString,32);
@@ -326,8 +316,8 @@ void Swp::Memory()
     }
     data.write(numberSwping,32);
 }
-void Write-Back()
+void Swp::writeBack()
 {
     R[des] = number;
     cout<<"WRITEBACK: write "<<number<<" to "<<des<<endl;
-}
+}*/
