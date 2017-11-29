@@ -379,21 +379,21 @@ void Swp::memory()
 {
     fstream data;
     data.open("DATA.MEM");
-    data.seekg(address*32+offset*32,ios::beg);
+    data.seekg(address*32,ios::beg);
     data.get(numberString,32);
     long numberTemp = 0;
     for(int i=31;i>=0;i--)
         numberTemp += pow(2,31-i)*(int(numberString[i])-int('0'));
-    cout<<"MEMORY: "<<numberTemp<<" loaded from "<<address*32+offset*32<<" address in memory"<<endl;
+    cout<<"MEMORY: "<<numberTemp<<" loaded from "<<address*32<<" address in memory"<<endl;
     swap(number,numberTemp);
-    cout<<numberTemp<<" stored at "<<address*32+offset*32<<" address in memory"<<endl;
-	data.seekg(address*32+offset*32,ios::beg);
+    cout<<numberTemp<<" stored at "<<address*32<<" address in memory"<<endl;
+	data.seekg(address*32,ios::beg);
     for(int i=31;i>=0;i--)
     {
         numberString[i] = (numberTemp%2==0?'0':'1');
         numberTemp = numberTemp/2;
     }
-    data.write(numberSwping,32);
+    data.write(numberString,32);
 }
 void Swp::writeBack()
 {
