@@ -2,7 +2,7 @@ Fetch instruction 0xE3A0200A from address 0x0
 0 11100011101000000010000000001010
 DECODE: Operation is MOV, Immidiate operand is 10
 Destination register is R2
-EXECUTE: Mov 10
+EXECUTE: MOV 10 in R2
 MEMORY: No memory operation
 WRITEBACK: write 10 to R2
 
@@ -10,7 +10,7 @@ Fetch instruction 0xE3A03002 from address 0x4
 4 11100011101000000011000000000010
 DECODE: Operation is MOV, Immidiate operand is 2
 Destination register is R3
-EXECUTE: Mov 2
+EXECUTE: MOV 2 in R3
 MEMORY: No memory operation
 WRITEBACK: write 2 to R3
 

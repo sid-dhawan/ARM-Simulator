@@ -166,7 +166,8 @@ void decode()
                 ins=new Mvn(Rd.to_ulong(),op2);
                 break;
             
-			default: ;
+			default:
+				ins=new Instruction();
         }
 	}
 	else if(insCode[27]==1&&insCode[26]==0&&insCode[25]==1)
@@ -203,31 +204,44 @@ void decode()
 		}
 		if(flag)
 		{
-			//seek the file pointer on required offset
+			//
 		}
 	}
 	else if(insCode[27]==0&&insCode[26]==1&&insCode[25]==0) // Immidiate 
 	{
-		
+		bitset<4> Rn,Rm,Rd;
+		bitset<12> Im;
+		long op1,op2;
+		bool imi;
+		for(i=16;i<20;i++)
+			Rn[i-16]=insCode[i];
+		for(i=12;i<16;i++)
+			Rd[i-12]=insCode[i];
+		op1=R[Rn.to_ulong()];
+		if(insCode[25]==0) // Immediate
+		{
+			imi=true;
+			for(i=0;i<12;i++)
+				Im[i]=insCode[i];
+			op2=Im.to_ulong();
+		}
+		else if(insCode[25]==1) // Register
+		{
+			imi=false;
+			for(i=0;i<4;i++)
+				Rm[i]=insCode[i];
+			op2=R[Rm.to_ulong()];
+		}
+		if(insCode[23]==0)
+			op2=-op2;
+			
 		if(insCode[20]==1)//LDR
 		{
-			
+			ins=new Ldr(Rd.to_ulong(),op1,op2);
 		}
 		else //STR
 		{
-			
-		}
-	}
-	else if(insCode[27]==0&&insCode[26]==1&&insCode[25]==1) // Indirect through register 
-	{
-		
-		if(insCode[20]==1)//LDR
-		{
-
-		}
-		else //STR
-		{
-
+			ins=new Str(Rd.to_ulong(),op1,op2);
 		}
 	}
 	else
