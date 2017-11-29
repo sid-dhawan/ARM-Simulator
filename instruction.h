@@ -27,6 +27,16 @@ class And:public Instruction
 		void writeBack();
 		And(long des, long op1, long op2);
 };
+class Cmp:public Instruction
+{
+    private:
+        long op1, op2, res;
+    public:
+        void execute();
+        void memory();
+        void writeBack();
+        Cmp(long op1, long op2);
+};
 class Eor:public Instruction
 {
 	private:
