@@ -33,7 +33,15 @@ void decode()
 	int i;
 	bool imi;
 	cout<<"DECODE: ";
-	if(insCode[27]==0&&insCode[26]==0) 
+	if(insCode[27]==1&&insCode[26]==1&&insCode[25]==1&&insCode[24]==1)
+	{
+		// SWI
+	}
+	else if(insCode[27]==0&&insCode[26]==0&&insCode[25]==0&&insCode[24]==1&&insCode[23]==0&&insCode[22]==0)
+	{
+		// SWP
+	}
+	else if(insCode[27]==0&&insCode[26]==0) 
 	{
 		bitset<4> opcode,Rn,Rm,Rd;
 		bitset<8> Im;
