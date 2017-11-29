@@ -125,9 +125,18 @@ void decode()
                 break;
             
 			case 10: //CMP
-                //ins=new Cmp(Rd.to_ulong(),op1,op2);
+                cout<<"Operation is CMP, First operand is R"<<Rn.to_ulong();
+                if(imi)
+                    cout<<", Immidiate second operand is "<<op2<<"\n";
+                else
+                    cout<<", Second operand is R"<<Rm.to_ulong()<<"\n";
+                cout<<"Read registers: R"<<Rn.to_ulong()<<" = "<<op1;
+                if(!imi)
+                    cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new Cmp(op1,op2);
                 break;
-            
+       			
 			case 12: //ORR
 				cout<<"Operation is ORR, First operand is R"<<Rn.to_ulong();
                 if(imi)
@@ -237,11 +246,32 @@ void decode()
 			
 		if(insCode[20]==1)//LDR
 		{
+			cout<<"Operation is LDR, Base address is R"<<Rn.to_ulong();
+            if(imi)
+                cout<<", Immidiate offset is "<<op2<<"\n";
+            else
+                cout<<", Offset is R"<<Rm.to_ulong()<<"\n";
+            cout<<"Destination register is R"<<Rd.to_ulong()<<"\n";
+            cout<<"Read registers: R"<<Rn.to_ulong()<<" = "<<op1;
+            if(!imi)
+                cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+            cout<<endl;
 			ins=new Ldr(Rd.to_ulong(),op1,op2);
 		}
 		else //STR
 		{
-			ins=new Str(Rd.to_ulong(),op1,op2);
+			cout<<"Operation is STR, Base address is R"<<Rn.to_ulong();
+            if(imi)
+                cout<<", Immidiate offset is "<<op2<<"\n";
+            else
+                cout<<", Offset is R"<<Rm.to_ulong()<<"\n";
+            cout<<"Source register is R"<<Rd.to_ulong()<<"\n";
+            cout<<"Read registers: R"<<Rd.to_ulong()<<" = "<<R[Rd.to_ulong()];
+            cout<<", R"<<Rn.to_ulong()<<" = "<<op1;
+            if(!imi)
+                cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+            cout<<endl;
+			ins=new Str(R[Rd.to_ulong()],op1,op2);
 		}
 	}
 	else
