@@ -54,6 +54,56 @@ void And::writeBack()
 }
 
 
+Cmp::Cmp(long op1, long op2)
+{
+	this->op1=op1;
+	this->op2=op2;
+}
+void Cmp::execute()
+{
+	res = op2 - op1;
+	cout<<"EXECUTE: "<<"CMP "<<op1<<" and "<<op2<<"\n";
+}
+void Cmp::memory()
+{
+    cout<<"MEMORY: No memory operation"<<endl;
+}
+void Cmp::writeBack()
+{
+	cout<<"WRITEBACK: ";
+	if(res<0)
+	{	
+		N = true;
+		cout<"Set N"<<endl;
+	}
+	else
+	{	
+		N = false;
+		cout<<"Clear N"<<endl;
+	}
+	if(res==0)
+	{	
+		Z = true;
+		cout<"Set Z"<<endl;
+	}
+	else
+	{	
+		Z = false;
+		cout<<"Clear Z"<<endl;
+	}
+	if(op2>op1-LONG_MIN)
+	{	
+		V = true;
+		cout<"Set V"<<endl;
+	}
+	else
+	{	
+		V = false;
+		cout<<"Clear V"<<endl;
+	}
+}
+
+
 Eor::Eor(long des, long op1, long op2)
 {
 	this->op1=op1;
