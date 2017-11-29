@@ -100,7 +100,7 @@ void Ldr::memory()
 void Ldr::writeBack()
 {
     R[des] = number;
-    cout<<"EXECUTE: write "<<number<<" to R"<<des<<endl;
+    cout<<"WRITEBACK: write "<<number<<" to R"<<des<<endl;
 }
 
 
@@ -112,7 +112,7 @@ Mov::Mov(long des, long op)
 void Mov::execute()
 {
 	res = op;
-    cout<<"EXECUTE: "<<"Mov "<<op<<"\n";
+    cout<<"EXECUTE: "<<"MOV "<<op<<" in R"<<des<<endl;
 }
 void Mov::memory()
 {
@@ -121,7 +121,7 @@ void Mov::memory()
 void Mov::writeBack()
 {
 	R[des]=res;
-    cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
+    cout<<"WRITEBACK: write "<<res<<" to R"<<des<<"\n";
 }
 
 
@@ -139,7 +139,7 @@ void Mul::execute()
 void Mul::writeBack()
 {
     R[des] = res;
-    cout<<"WRITEBACK: Write "<<res<<" to R"<<des<<endl;
+    cout<<"WRITEBACK: write "<<res<<" to R"<<des<<endl;
 }
 void Mul::memory()
 {
@@ -155,7 +155,7 @@ Mvn::Mvn(long des, long op)
 void Mvn::execute()
 {
 	res = ~op;
-    cout<<"EXECUTE: "<<"MVN "<<op<<"\n";
+    cout<<"EXECUTE: MVN "<<op<<" in R"<<des<<endl;
 }
 void Mvn::memory()
 {
@@ -164,7 +164,7 @@ void Mvn::memory()
 void Mvn::writeBack()
 {
 	R[des]=res;
-    cout<<"WRITEBACK: "<<"write "<<res<<" to R"<<des<<"\n";
+    cout<<"WRITEBACK: write "<<res<<" to R"<<des<<"\n";
 }
 
 
@@ -203,7 +203,7 @@ void Str::execute()
 void Str::memory()
 {
     fstream data;
-    cout<<"MEMORY: "<<number<<" stored at "<<address*32+offset*32<<" address in memory"<<endl;
+    cout<<"MEMORY: "<<"store "<<number<<" at "<<address*32+offset*32<<" address in memory"<<endl;
     data.open("DATA.MEM");
     data.seekg(address*32+offset*32,ios::beg);
     for(int i=31;i>=0;i--)
@@ -215,7 +215,7 @@ void Str::memory()
 }
 void Str::writeBack()
 {
-    cout<<"EXECUTE: No write-back operation"<<endl;
+    cout<<"WRITEBACK: No write-back operation"<<endl;
 }
 
 
@@ -233,7 +233,7 @@ void Sub::execute()
 void Sub::writeBack()
 {
     R[des] = res;
-    cout<<"WRITEBACK: Write "<<res<<" to R"<<des<<endl;
+    cout<<"WRITEBACK: write "<<res<<" to R"<<des<<endl;
 }
 void Sub::memory()
 {
@@ -268,7 +268,7 @@ void Swi::writeBack()
     if(condition == "Read")
     {
         R[0] = number;
-        cout<<"WRITEBACK: Write "<<number<<" to R0"<<endl;
+        cout<<"WRITEBACK: write "<<number<<" to R0"<<endl;
     }
     else if(condition == "Print")
     {

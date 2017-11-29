@@ -120,4 +120,14 @@ class Swi:public Instruction
         void writeBack();
         Swi(long instruction);
 };
-
+/*class Swp:public Instruction
+{
+    private:
+        long number, address, des;
+        char numberString[32];
+    public:
+        void execute();
+        void memory();
+        void writeBack();
+        Swp(long des, long number, long address);
+};*/
