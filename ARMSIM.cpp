@@ -31,6 +31,7 @@ void fetch()
 void decode()
 {
 	int i;
+	bool imi;
 	if(insCode[27]==0&&insCode[26]==0) 
 	{
 		bitset<4> opcode,Rn,Rm,Rd;
@@ -64,36 +65,102 @@ void decode()
 		}
 		Mov *mov;
 		switch(opcode.to_ulong())
-		{
-			case 0 : //AND
-					 ins=new And(Rd.to_ulong(),op1,op2);
-					 break;
-			case 1 : //EOR
-					 ins=new Eor(Rd.to_ulong(),op1,op2);
-					 break;
-			case 2 : //SUB
-					 ins=new Sub(Rd.to_ulong(),op1,op2);
-					 break;
-			case 4 : //ADD
-					 ins=new Add(Rd.to_ulong(),op1,op2);
-					 break;
-			case 10: //CMP
-					 //ins=new Cmp(Rd.to_ulong(),op1,op2);
-					 break;
-			case 12: //ORR
-					 ins=new Orr(Rd.to_ulong(),op1,op2);
-					 break;
-			case 13: //MOV
-					 mov=new Mov(Rd.to_ulong(),op2);
-					 ins=mov;
-					 break;
-			case 15: //MVN
-					 ins=new Mvn(Rd.to_ulong(),op2);
-					 break;
-			default: //default
-					 ins=new Instruction();
-					 ;
-		}
+        {
+            case 0 : //AND
+                cout<<"Operation is AND, First operand is R"<<Rn.to_ulong();
+                if(imi)
+                    cout<<", immidiate Second operand is "<<op2;
+                else
+                    cout<<", Second operand is "<<Rm.to_ulong();
+                cout<<", Destination register is R"<<Rd.to_ulong();
+                cout<<", Read registers: R"<<Rn.to_ulong()<<" = "<<op1;
+                if(!imi)
+                    cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new And(Rd.to_ulong(),op1,op2);
+                break;
+            case 1 : //EOR
+                cout<<"Operation is EOR, First operand is R"<<Rn.to_ulong();
+                if(imi)
+                    cout<<", immidiate Second operand is "<<op2;
+                else
+                    cout<<", Second operand is "<<Rm.to_ulong();
+                cout<<", Destination register is R"<<Rd.to_ulong();
+                cout<<", Read registers: R"<<Rn.to_ulong()<<" = "<<op1;
+                if(!imi)
+                    cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new Eor(Rd.to_ulong(),op1,op2);
+                break;
+            case 2 : //SUB
+                cout<<"Operation is SUB, First operand is R"<<Rn.to_ulong();
+                if(imi)
+                    cout<<", immidiate Second operand is "<<op2;
+                else
+                    cout<<", Second operand is "<<Rm.to_ulong();
+                cout<<", Destination register is R"<<Rd.to_ulong();
+                cout<<", Read registers: R"<<Rn.to_ulong()<<" = "<<op1;
+                if(!imi)
+                    cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new Sub(Rd.to_ulong(),op1,op2);
+                break;
+            case 4 : //ADD
+                cout<<"Operation is ADD, First operand is R"<<Rn.to_ulong();
+                if(imi)
+                    cout<<", immidiate Second operand is "<<op2;
+                else
+                    cout<<", Second operand is "<<Rm.to_ulong();
+                cout<<", Destination register is R"<<Rd.to_ulong();
+                cout<<", Read registers: R"<<Rn.to_ulong()<<" = "<<op1;
+                if(!imi)
+                    cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new Add(Rd.to_ulong(),op1,op2);
+                break;
+            case 10: //CMP
+                //ins=new Cmp(Rd.to_ulong(),op1,op2);
+                break;
+            case 12: //ORR
+                cout<<"Operation is ORR, First operand is R"<<Rn.to_ulong();
+                if(imi)
+                    cout<<", immidiate Second operand is "<<op2;
+                else
+                    cout<<", Second operand is "<<Rm.to_ulong();
+                cout<<", Destination register is R"<<Rd.to_ulong();
+                cout<<", Read registers: R"<<Rn.to_ulong()<<" = "<<op1;
+                if(!imi)
+                    cout<<", R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new Orr(Rd.to_ulong(),op1,op2);
+                break;
+            case 13: //MOV
+                cout<<"Operation is MOV";
+                if(imi)
+                    cout<<", immidiate operand is "<<op2;
+                else
+                    cout<<", operand is "<<Rm.to_ulong();
+                cout<<", Destination register is R"<<Rd.to_ulong();
+                if(!imi)
+                    cout<<", Read registers: R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new Mov(Rd.to_ulong(),op2);
+                break;
+            case 15: //MVN
+                cout<<"Operation is MVN";
+                if(imi)
+                    cout<<", immidiate operand is "<<op2;
+                else
+                    cout<<", operand is "<<Rm.to_ulong();
+                cout<<", Destination register is R"<<Rd.to_ulong();
+                if(!imi)
+                    cout<<", Read registers: R"<<Rm.to_ulong()<<" = "<<op2;
+                cout<<endl;
+                ins=new Mvn(Rd.to_ulong(),op2);
+                break;
+            default: //default
+                ;
+        }
 	}
 	else if(insCode[27]==1&&insCode[26]==0&&insCode[25]==1)
 	{
