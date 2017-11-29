@@ -229,28 +229,28 @@ void decode()
 			offset=Im.to_ulong();
 		cout<<"Operation is B, Offset is "<<offset<<endl;
 		cout<<"Read flags: ";
-		cout<<"Z = "<Z<<", N = "<<N<<", C = "<<C<<", V = "<<V<<endl;
+		cout<<"Z = "<<Z<<", N = "<<N<<", C = "<<C<<", V = "<<V<<endl;
 		switch(cond.to_ulong())
 		{
-			case 0 : //EQ
+			case 0 : cout<<"Condition is EQ\n";//EQ
 				flag=Z;
 				break;
-			case 1 : //NE
+			case 1 : cout<<"Condition is NE\n";//NE
 				flag=Z;
 				break;
-			case 10 : //GE
+			case 10 : cout<<"Condition is GE\n";///GE
 				flag=(N==V);
 				break;
-			case 11: //LT
+			case 11: cout<<"Condition is LT\n";///LT
 				flag=(N!=V);
 				break;
-			case 12: //GT
+			case 12: cout<<"Condition is GT\n";///GT
 				flag=(!Z&&(N==V));
 				break;
-			case 13: //LE
+			case 13: cout<<"Condition is LE\n";///LE
 				flag=(Z||(N!=V));
 				break;
-			default: //AL
+			default: cout<<"Condition is AL\n";///AL
 				flag=true;
 		}
 		if(flag)

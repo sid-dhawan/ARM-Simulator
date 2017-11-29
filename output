@@ -1,10 +1,11 @@
-Fetch instruction 0xE3A0200A from address 0x0
-0 11100011101000000010000000001010
-DECODE: Operation is MOV, Immidiate operand is 10
-Destination register is R2
-EXECUTE: MOV 10 in R2
+Fetch instruction 0xE0800001 from address 0x0
+0 11100000100000000000000000000001
+DECODE: Operation is ADD, First operand is R0, Second operand is R1
+Destination register is R0
+Read registers: R0 = 0, R1 = 0
+EXECUTE: ADD 0 and 0
 MEMORY: No memory operation
-WRITEBACK: write 10 to R2
+WRITEBACK: write 0 to R0
 
 Fetch instruction 0xE3A03002 from address 0x4
 4 11100011101000000011000000000010
@@ -18,14 +19,14 @@ Fetch instruction 0xE0821003 from address 0x8
 8 11100000100000100001000000000011
 DECODE: Operation is ADD, First operand is R2, Second operand is R3
 Destination register is R1
-Read registers: R2 = 10, R3 = 2
-EXECUTE: ADD 10 and 2
+Read registers: R2 = 0, R3 = 2
+EXECUTE: ADD 0 and 2
 MEMORY: No memory operation
-WRITEBACK: write 12 to R1
+WRITEBACK: write 2 to R1
 
 Fetch instruction 0xEF000011 from address 0xC
 12 11101111000000000000000000010001
-DECODE: EXECUTE: ADD 10 and 2
+DECODE: Operation is SWI
+SWI Code is 17
 MEMORY: No memory operation
-WRITEBACK: write 12 to R1
-
+EXIT:
