@@ -80,14 +80,7 @@ void decode()
 			imi=true;
 			for(i=0;i<8;i++)
 				Im[i]=insCode[i];
-			if(Im[7]==1)
-			{
-				Im=Im.to_ulong()-1;
-				Im=~Im;
-				op2=-Im.to_ulong();
-			}
-			else
-				op2=Im.to_ulong();
+			op2=Im.to_ulong();
 		}
 		else if(insCode[25]==0) // Register
 		{
@@ -219,7 +212,7 @@ void decode()
 		bitset<24> Im;
 		for(i=0;i<24;i++)
 			Im[i]=insCode[i];
-		if(Im[7]==1)
+		if(Im[23]==1)
 		{
 			Im=Im.to_ulong()-1;
 			Im=~Im;
