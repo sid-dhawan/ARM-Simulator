@@ -1,6 +1,7 @@
 #include "instruction.h"
 #include "global.h"
 #include <cmath>
+#include <climits>
 void Instruction::execute()
 {
 	cout<<"Parent execute\n";
@@ -74,7 +75,7 @@ void Cmp::writeBack()
 	if(res<0)
 	{	
 		N = true;
-		cout<"Set N"<<endl;
+		cout<<"Set N"<<endl;
 	}
 	else
 	{	
@@ -84,7 +85,7 @@ void Cmp::writeBack()
 	if(res==0)
 	{	
 		Z = true;
-		cout<"Set Z"<<endl;
+		cout<<"Set Z"<<endl;
 	}
 	else
 	{	
@@ -94,7 +95,7 @@ void Cmp::writeBack()
 	if(op2>op1-LONG_MIN)
 	{	
 		V = true;
-		cout<"Set V"<<endl;
+		cout<<"Set V"<<endl;
 	}
 	else
 	{	
