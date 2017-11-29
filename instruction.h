@@ -141,7 +141,7 @@ class B:public Instruction
 		void writeBack();
 		
 };
-/*class Swp:public Instruction
+class Swp:public Instruction
 {
     private:
         long number, address, des;
@@ -151,4 +151,4 @@ class B:public Instruction
         void memory();
         void writeBack();
         Swp(long des, long number, long address);
-};*/
+};

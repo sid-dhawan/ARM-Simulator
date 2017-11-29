@@ -45,7 +45,23 @@ void decode()
 	else if(insCode[27]==0&&insCode[26]==0&&insCode[25]==0&&insCode[24]==1&&insCode[23]==0&&insCode[22]==0)
 	{
 		// SWP
-
+		bitset<4> Rn,Rm,Rd;
+		long op1,op2;
+		for(i=16;i<20;i++)
+			Rn[i-16]=insCode[i];
+		op2=R[Rn.to_ulong()];
+		for(i=12;i<16;i++)
+			Rd[i-12]=insCode[i];
+		for(i=0;i<4;i++)
+			Rm[i]=insCode[i];
+		op1=R[Rm.to_ulong()];
+		cout<<"Operation is SWP, Source is R"<<Rm.to_ulong();
+		cout<<", Address is R"<<Rn.to_ulong()<<"\n";
+		cout<<"Destination register is R"<<Rd.to_ulong()<<"\n";
+		cout<<"Read registers: R"<<Rm.to_ulong()<<" = "<<op1;
+		cout<<", R"<<Rn.to_ulong()<<" = "<<op2;
+		cout<<endl;		
+		ins=new Swp(Rd.to_ulong(),op1,op2);
 	}
 	else if(insCode[27]==0&&insCode[26]==0) 
 	{
@@ -211,7 +227,9 @@ void decode()
 		}
 		else
 			offset=Im.to_ulong();
-
+		cout<<"Operation is B, Offset is "<<offset<<endl;
+		cout<<"Read flags: ";
+		cout<<"Z = "<Z<<", N = "<<N<<", C = "<<C<<", V = "<<V<<endl;
 		switch(cond.to_ulong())
 		{
 			case 0 : //EQ

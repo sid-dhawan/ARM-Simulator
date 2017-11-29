@@ -365,7 +365,7 @@ void B::writeBack()
 	cout<<"WRITEBACK: No writeback operation";
 }
 
-/*Swp::Swp(long des,long number,long address)
+Swp::Swp(long des,long number,long address)
 {
     this->number = number;
     this->address = address;
@@ -399,4 +399,4 @@ void Swp::writeBack()
 {
     R[des] = number;
     cout<<"WRITEBACK: write "<<number<<" to "<<des<<endl;
-}*/
+}
