@@ -26,7 +26,7 @@ void fetch()
 	stream<<t;
 	stream>>hex>>x;
 	insCode=x;
-	cout<<insAddress<<" "<<insCode<<"\n";
+	//cout<<insAddress<<" "<<insCode<<"\n";
 }
 void decode()
 {

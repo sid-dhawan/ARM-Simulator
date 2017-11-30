@@ -1,124 +1,1099 @@
-Fetch instruction 0xE3A00000 from address 0x0
-0 11100011101000000000000000000000
+Fetch instruction 0xE3A05014 from address 0x0
+DECODE: Operation is MOV, Immidiate operand is 20
+Destination register is R5
+EXECUTE: MOV 20 in R5
+MEMORY: No memory operation
+WRITEBACK: write 20 to R5
+
+Fetch instruction 0xE2455002 from address 0x4
+DECODE: Operation is SUB, First operand is R5, Immidiate second operand is 2
+Destination register is R5
+Read registers: R5 = 20
+EXECUTE: SUB 2 from 20
+MEMORY: No memory operation
+WRITEBACK: write 18 to R5
+
+Fetch instruction 0xE3A02000 from address 0x8
 DECODE: Operation is MOV, Immidiate operand is 0
-Destination register is R0
-EXECUTE: MOV 0 in R0
+Destination register is R2
+EXECUTE: MOV 0 in R2
 MEMORY: No memory operation
-WRITEBACK: write 0 to R0
+WRITEBACK: write 0 to R2
 
-Fetch instruction 0xE3500003 from address 0x4
-4 11100011010100000000000000000011
-DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
-Read registers: R0 = 0
-EXECUTE: CMP 0 and 3
+Fetch instruction 0xE3A03001 from address 0xc
+DECODE: Operation is MOV, Immidiate operand is 1
+Destination register is R3
+EXECUTE: MOV 1 in R3
 MEMORY: No memory operation
-WRITEBACK: Set N
-Clear Z
-Clear V
+WRITEBACK: write 1 to R3
 
-Fetch instruction 0xAA000001 from address 0x8
-8 10101010000000000000000000000001
-DECODE: Operation is B, Offset is 1
-Read flags: Z = 0, N = 1, C = 0, V = 0
+Fetch instruction 0xE3A04000 from address 0x10
+DECODE: Operation is MOV, Immidiate operand is 0
+Destination register is R4
+EXECUTE: MOV 0 in R4
+MEMORY: No memory operation
+WRITEBACK: write 0 to R4
+
+Fetch instruction 0xE1A01002 from address 0x14
+DECODE: Operation is MOV, Operand is R2
+Destination register is R1
+Read registers: R2 = 0
+EXECUTE: MOV 0 in R1
+MEMORY: No memory operation
+WRITEBACK: write 0 to R1
+
+Fetch instruction 0xE1A01003 from address 0x18
+DECODE: Operation is MOV, Operand is R3
+Destination register is R1
+Read registers: R3 = 1
+EXECUTE: MOV 1 in R1
+MEMORY: No memory operation
+WRITEBACK: write 1 to R1
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 0, R5 = 18
+EXECUTE: CMP 0 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
 Condition is GE
-Parent execute
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
 
-Fetch instruction 0xE2800001 from address 0xc
-12 11100010100000000000000000000001
-DECODE: Operation is ADD, First operand is R0, Immidiate second operand is 1
-Destination register is R0
-Read registers: R0 = 0
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 0, R3 = 1
 EXECUTE: ADD 0 and 1
 MEMORY: No memory operation
-WRITEBACK: write 1 to R0
+WRITEBACK: write 1 to R1
 
-Fetch instruction 0xEAFFFFFB from address 0x10
-16 11101010111111111111111111111011
-DECODE: Operation is B, Offset is -5
-Read flags: Z = 0, N = 1, C = 0, V = 0
-Condition is AL
-EXECUTE: Change program counter by -5 
-MEMORY: No memory operationWRITEBACK: No writeback operation
-Fetch instruction 0xE3500003 from address 0x4
-4 11100011010100000000000000000011
-DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
-Read registers: R0 = 1
-EXECUTE: CMP 1 and 3
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 1
+EXECUTE: MOV 1 in R2
 MEMORY: No memory operation
-WRITEBACK: Set N
-Clear Z
-Clear V
+WRITEBACK: write 1 to R2
 
-Fetch instruction 0xAA000001 from address 0x8
-8 10101010000000000000000000000001
-DECODE: Operation is B, Offset is 1
-Read flags: Z = 0, N = 1, C = 0, V = 0
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 1
+EXECUTE: MOV 1 in R3
+MEMORY: No memory operation
+WRITEBACK: write 1 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 0
+EXECUTE: ADD 0 and 1
+MEMORY: No memory operation
+WRITEBACK: write 1 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 1, R5 = 18
+EXECUTE: CMP 1 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
 Condition is GE
-Parent execute
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
 
-Fetch instruction 0xE2800001 from address 0xc
-12 11100010100000000000000000000001
-DECODE: Operation is ADD, First operand is R0, Immidiate second operand is 1
-Destination register is R0
-Read registers: R0 = 1
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 1, R3 = 1
 EXECUTE: ADD 1 and 1
 MEMORY: No memory operation
-WRITEBACK: write 2 to R0
+WRITEBACK: write 2 to R1
 
-Fetch instruction 0xEAFFFFFB from address 0x10
-16 11101010111111111111111111111011
-DECODE: Operation is B, Offset is -5
-Read flags: Z = 0, N = 1, C = 0, V = 0
-Condition is AL
-EXECUTE: Change program counter by -5 
-MEMORY: No memory operationWRITEBACK: No writeback operation
-Fetch instruction 0xE3500003 from address 0x4
-4 11100011010100000000000000000011
-DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
-Read registers: R0 = 2
-EXECUTE: CMP 2 and 3
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 1
+EXECUTE: MOV 1 in R2
 MEMORY: No memory operation
-WRITEBACK: Set N
-Clear Z
-Clear V
+WRITEBACK: write 1 to R2
 
-Fetch instruction 0xAA000001 from address 0x8
-8 10101010000000000000000000000001
-DECODE: Operation is B, Offset is 1
-Read flags: Z = 0, N = 1, C = 0, V = 0
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 2
+EXECUTE: MOV 2 in R3
+MEMORY: No memory operation
+WRITEBACK: write 2 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 1
+EXECUTE: ADD 1 and 1
+MEMORY: No memory operation
+WRITEBACK: write 2 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 2, R5 = 18
+EXECUTE: CMP 2 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
 Condition is GE
-Parent execute
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
 
-Fetch instruction 0xE2800001 from address 0xc
-12 11100010100000000000000000000001
-DECODE: Operation is ADD, First operand is R0, Immidiate second operand is 1
-Destination register is R0
-Read registers: R0 = 2
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 1, R3 = 2
+EXECUTE: ADD 1 and 2
+MEMORY: No memory operation
+WRITEBACK: write 3 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 2
+EXECUTE: MOV 2 in R2
+MEMORY: No memory operation
+WRITEBACK: write 2 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 3
+EXECUTE: MOV 3 in R3
+MEMORY: No memory operation
+WRITEBACK: write 3 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 2
 EXECUTE: ADD 2 and 1
 MEMORY: No memory operation
-WRITEBACK: write 3 to R0
+WRITEBACK: write 3 to R4
 
-Fetch instruction 0xEAFFFFFB from address 0x10
-16 11101010111111111111111111111011
-DECODE: Operation is B, Offset is -5
-Read flags: Z = 0, N = 1, C = 0, V = 0
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
 Condition is AL
-EXECUTE: Change program counter by -5 
-MEMORY: No memory operationWRITEBACK: No writeback operation
-Fetch instruction 0xE3500003 from address 0x4
-4 11100011010100000000000000000011
-DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
-Read registers: R0 = 3
-EXECUTE: CMP 3 and 3
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
 MEMORY: No memory operation
-WRITEBACK: Clear N
-Set Z
-Clear V
+WRITEBACK: No writeback operation
 
-Fetch instruction 0xAA000001 from address 0x8
-8 10101010000000000000000000000001
-DECODE: Operation is B, Offset is 1
-Read flags: Z = 1, N = 0, C = 0, V = 0
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 3, R5 = 18
+EXECUTE: CMP 3 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
 Condition is GE
-EXECUTE: Change program counter by 1 
-MEMORY: No memory operationWRITEBACK: No writeback operation
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 2, R3 = 3
+EXECUTE: ADD 2 and 3
+MEMORY: No memory operation
+WRITEBACK: write 5 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 3
+EXECUTE: MOV 3 in R2
+MEMORY: No memory operation
+WRITEBACK: write 3 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 5
+EXECUTE: MOV 5 in R3
+MEMORY: No memory operation
+WRITEBACK: write 5 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 3
+EXECUTE: ADD 3 and 1
+MEMORY: No memory operation
+WRITEBACK: write 4 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 4, R5 = 18
+EXECUTE: CMP 4 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 3, R3 = 5
+EXECUTE: ADD 3 and 5
+MEMORY: No memory operation
+WRITEBACK: write 8 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 5
+EXECUTE: MOV 5 in R2
+MEMORY: No memory operation
+WRITEBACK: write 5 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 8
+EXECUTE: MOV 8 in R3
+MEMORY: No memory operation
+WRITEBACK: write 8 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 4
+EXECUTE: ADD 4 and 1
+MEMORY: No memory operation
+WRITEBACK: write 5 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 5, R5 = 18
+EXECUTE: CMP 5 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 5, R3 = 8
+EXECUTE: ADD 5 and 8
+MEMORY: No memory operation
+WRITEBACK: write 13 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 8
+EXECUTE: MOV 8 in R2
+MEMORY: No memory operation
+WRITEBACK: write 8 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 13
+EXECUTE: MOV 13 in R3
+MEMORY: No memory operation
+WRITEBACK: write 13 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 5
+EXECUTE: ADD 5 and 1
+MEMORY: No memory operation
+WRITEBACK: write 6 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 6, R5 = 18
+EXECUTE: CMP 6 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 8, R3 = 13
+EXECUTE: ADD 8 and 13
+MEMORY: No memory operation
+WRITEBACK: write 21 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 13
+EXECUTE: MOV 13 in R2
+MEMORY: No memory operation
+WRITEBACK: write 13 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 21
+EXECUTE: MOV 21 in R3
+MEMORY: No memory operation
+WRITEBACK: write 21 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 6
+EXECUTE: ADD 6 and 1
+MEMORY: No memory operation
+WRITEBACK: write 7 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 7, R5 = 18
+EXECUTE: CMP 7 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 13, R3 = 21
+EXECUTE: ADD 13 and 21
+MEMORY: No memory operation
+WRITEBACK: write 34 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 21
+EXECUTE: MOV 21 in R2
+MEMORY: No memory operation
+WRITEBACK: write 21 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 34
+EXECUTE: MOV 34 in R3
+MEMORY: No memory operation
+WRITEBACK: write 34 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 7
+EXECUTE: ADD 7 and 1
+MEMORY: No memory operation
+WRITEBACK: write 8 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 8, R5 = 18
+EXECUTE: CMP 8 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 21, R3 = 34
+EXECUTE: ADD 21 and 34
+MEMORY: No memory operation
+WRITEBACK: write 55 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 34
+EXECUTE: MOV 34 in R2
+MEMORY: No memory operation
+WRITEBACK: write 34 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 55
+EXECUTE: MOV 55 in R3
+MEMORY: No memory operation
+WRITEBACK: write 55 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 8
+EXECUTE: ADD 8 and 1
+MEMORY: No memory operation
+WRITEBACK: write 9 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 9, R5 = 18
+EXECUTE: CMP 9 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 34, R3 = 55
+EXECUTE: ADD 34 and 55
+MEMORY: No memory operation
+WRITEBACK: write 89 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 55
+EXECUTE: MOV 55 in R2
+MEMORY: No memory operation
+WRITEBACK: write 55 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 89
+EXECUTE: MOV 89 in R3
+MEMORY: No memory operation
+WRITEBACK: write 89 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 9
+EXECUTE: ADD 9 and 1
+MEMORY: No memory operation
+WRITEBACK: write 10 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 10, R5 = 18
+EXECUTE: CMP 10 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 55, R3 = 89
+EXECUTE: ADD 55 and 89
+MEMORY: No memory operation
+WRITEBACK: write 144 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 89
+EXECUTE: MOV 89 in R2
+MEMORY: No memory operation
+WRITEBACK: write 89 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 144
+EXECUTE: MOV 144 in R3
+MEMORY: No memory operation
+WRITEBACK: write 144 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 10
+EXECUTE: ADD 10 and 1
+MEMORY: No memory operation
+WRITEBACK: write 11 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 11, R5 = 18
+EXECUTE: CMP 11 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 89, R3 = 144
+EXECUTE: ADD 89 and 144
+MEMORY: No memory operation
+WRITEBACK: write 233 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 144
+EXECUTE: MOV 144 in R2
+MEMORY: No memory operation
+WRITEBACK: write 144 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 233
+EXECUTE: MOV 233 in R3
+MEMORY: No memory operation
+WRITEBACK: write 233 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 11
+EXECUTE: ADD 11 and 1
+MEMORY: No memory operation
+WRITEBACK: write 12 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 12, R5 = 18
+EXECUTE: CMP 12 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 144, R3 = 233
+EXECUTE: ADD 144 and 233
+MEMORY: No memory operation
+WRITEBACK: write 377 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 233
+EXECUTE: MOV 233 in R2
+MEMORY: No memory operation
+WRITEBACK: write 233 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 377
+EXECUTE: MOV 377 in R3
+MEMORY: No memory operation
+WRITEBACK: write 377 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 12
+EXECUTE: ADD 12 and 1
+MEMORY: No memory operation
+WRITEBACK: write 13 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 13, R5 = 18
+EXECUTE: CMP 13 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 233, R3 = 377
+EXECUTE: ADD 233 and 377
+MEMORY: No memory operation
+WRITEBACK: write 610 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 377
+EXECUTE: MOV 377 in R2
+MEMORY: No memory operation
+WRITEBACK: write 377 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 610
+EXECUTE: MOV 610 in R3
+MEMORY: No memory operation
+WRITEBACK: write 610 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 13
+EXECUTE: ADD 13 and 1
+MEMORY: No memory operation
+WRITEBACK: write 14 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 14, R5 = 18
+EXECUTE: CMP 14 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 377, R3 = 610
+EXECUTE: ADD 377 and 610
+MEMORY: No memory operation
+WRITEBACK: write 987 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 610
+EXECUTE: MOV 610 in R2
+MEMORY: No memory operation
+WRITEBACK: write 610 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 987
+EXECUTE: MOV 987 in R3
+MEMORY: No memory operation
+WRITEBACK: write 987 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 14
+EXECUTE: ADD 14 and 1
+MEMORY: No memory operation
+WRITEBACK: write 15 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 15, R5 = 18
+EXECUTE: CMP 15 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 610, R3 = 987
+EXECUTE: ADD 610 and 987
+MEMORY: No memory operation
+WRITEBACK: write 1597 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 987
+EXECUTE: MOV 987 in R2
+MEMORY: No memory operation
+WRITEBACK: write 987 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 1597
+EXECUTE: MOV 1597 in R3
+MEMORY: No memory operation
+WRITEBACK: write 1597 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 15
+EXECUTE: ADD 15 and 1
+MEMORY: No memory operation
+WRITEBACK: write 16 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 16, R5 = 18
+EXECUTE: CMP 16 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 987, R3 = 1597
+EXECUTE: ADD 987 and 1597
+MEMORY: No memory operation
+WRITEBACK: write 2584 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 1597
+EXECUTE: MOV 1597 in R2
+MEMORY: No memory operation
+WRITEBACK: write 1597 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 2584
+EXECUTE: MOV 2584 in R3
+MEMORY: No memory operation
+WRITEBACK: write 2584 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 16
+EXECUTE: ADD 16 and 1
+MEMORY: No memory operation
+WRITEBACK: write 17 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 17, R5 = 18
+EXECUTE: CMP 17 and 18
+MEMORY: No memory operation
+WRITEBACK: Set N , Clear Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 0, N = 1, V = 0
+Condition found False
+EXECUTE: Do Nothing
+MEMORY: Do Nothing
+WRITEBACK: Do Nothing
+
+Fetch instruction 0xE0821003 from address 0x24
+DECODE: Operation is ADD, First operand is R2, Second operand is R3
+Destination register is R1
+Read registers: R2 = 1597, R3 = 2584
+EXECUTE: ADD 1597 and 2584
+MEMORY: No memory operation
+WRITEBACK: write 4181 to R1
+
+Fetch instruction 0xE1A02003 from address 0x28
+DECODE: Operation is MOV, Operand is R3
+Destination register is R2
+Read registers: R3 = 2584
+EXECUTE: MOV 2584 in R2
+MEMORY: No memory operation
+WRITEBACK: write 2584 to R2
+
+Fetch instruction 0xE1A03001 from address 0x2c
+DECODE: Operation is MOV, Operand is R1
+Destination register is R3
+Read registers: R1 = 4181
+EXECUTE: MOV 4181 in R3
+MEMORY: No memory operation
+WRITEBACK: write 4181 to R3
+
+Fetch instruction 0xE2844001 from address 0x30
+DECODE: Operation is ADD, First operand is R4, Immidiate second operand is 1
+Destination register is R4
+Read registers: R4 = 17
+EXECUTE: ADD 17 and 1
+MEMORY: No memory operation
+WRITEBACK: write 18 to R4
+
+Fetch instruction 0xEAFFFFF8 from address 0x34
+DECODE: Operation is B, Offset is -8
+Condition is AL
+Read flags: Z = 0, N = 1, V = 0
+Condition found True
+EXECUTE: Change program counter by -8 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xE1540005 from address 0x1c
+DECODE: Operation is CMP, First operand is R4, Second operand is R5
+Read registers: R4 = 18, R5 = 18
+EXECUTE: CMP 18 and 18
+MEMORY: No memory operation
+WRITEBACK: Clear N , Set Z , Clear V
+
+Fetch instruction 0xAA000004 from address 0x20
+DECODE: Operation is B, Offset is 4
+Condition is GE
+Read flags: Z = 1, N = 0, V = 0
+Condition found True
+EXECUTE: Change program counter by 4 
+MEMORY: No memory operation
+WRITEBACK: No writeback operation
+
+Fetch instruction 0xEF000011 from address 0x38
+DECODE: Operation is SWI
+SWI Code is 17
+MEMORY: No memory operation
+EXIT:

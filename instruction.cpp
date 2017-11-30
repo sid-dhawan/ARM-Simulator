@@ -4,13 +4,16 @@
 #include <climits>
 void Instruction::execute()
 {
-	cout<<"Parent execute\n";
+	cout<<"EXECUTE: Do Nothing\n";
 }
 void Instruction::writeBack()
-{}
+{
+	cout<<"WRITEBACK: Do Nothing\n";
+}
 void Instruction::memory()
-{}
-
+{
+	cout<<"MEMORY: Do Nothing\n";
+}
 Add::Add(long des, long op1, long op2)
 {
 	this->op1=op1;
@@ -75,22 +78,22 @@ void Cmp::writeBack()
 	if(res<0)
 	{	
 		N = true;
-		cout<<"Set N"<<endl;
+		cout<<"Set N , ";
 	}
 	else
 	{	
 		N = false;
-		cout<<"Clear N"<<endl;
+		cout<<"Clear N , ";
 	}
 	if(res==0)
 	{	
 		Z = true;
-		cout<<"Set Z"<<endl;
+		cout<<"Set Z , ";
 	}
 	else
 	{	
 		Z = false;
-		cout<<"Clear Z"<<endl;
+		cout<<"Clear Z , ";
 	}
 	if((long long)op2>(long long)op1-(long long)(-pow(2,31))||(long long)op2<(long long)op1-(long long)(pow(2,31)-1))
 	{
@@ -147,7 +150,7 @@ void Ldr::memory()
     number = 0;
     for(int i=31;i>=0;i--)
         number += pow(2,31-i)*(int(numberString[i])-int('0'));
-    cout<<"MEMORY: "<<number<<" loaded from "<<address*32+offset*32<<" address in memory"<<endl;
+    cout<<"MEMORY: "<<number<<" loaded from "<<address+offset<<" address"<<endl;
 }
 void Ldr::writeBack()
 {
@@ -255,7 +258,7 @@ void Str::execute()
 void Str::memory()
 {
     fstream data;
-    cout<<"MEMORY: "<<"store "<<number<<" at "<<address*32+offset*32<<" address in memory"<<endl;
+    cout<<"MEMORY: "<<"store "<<number<<" at "<<address+offset<<" address"<<endl;
     data.open("DATA.MEM");
     data.seekg(address*32+offset*32,ios::beg);
     for(int i=31;i>=0;i--)
@@ -360,11 +363,11 @@ void B::execute()
 }
 void B::memory()
 {
-	cout<<"MEMORY: No memory operation";
+	cout<<"MEMORY: No memory operation\n";
 }
 void B::writeBack()
 {
-	cout<<"WRITEBACK: No writeback operation";
+	cout<<"WRITEBACK: No writeback operation\n";
 }
 
 Swp::Swp(long des,long number,long address)
