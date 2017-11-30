@@ -63,6 +63,27 @@ void decode()
 		cout<<endl;		
 		ins=new Swp(Rd.to_ulong(),op1,op2);
 	}
+	else if(insCode[27]==0&&insCode[26]==0&&insCode[25]==0&&insCode[24]==0&&insCode[23]==0&&insCode[22]==0)
+	{
+		// MUL
+		bitset<4> Rn,Rm,Rd;
+		long op1,op2;
+		for(i=8;i<12;i++)
+			Rn[i-8]=insCode[i];
+		op2=R[Rn.to_ulong()];
+		for(i=0;i<4;i++)
+			Rm[i]=insCode[i];
+		op1=R[Rm.to_ulong()];
+		for(i=16;i<20;i++)
+			Rd[i-16]=insCode[i];
+		cout<<"Operation is MUL, First operand is R"<<Rm.to_ulong();
+		cout<<", Second operand is R"<<Rn.to_ulong()<<"\n";
+		cout<<"Destination register is R"<<Rd.to_ulong()<<"\n";
+		cout<<"Read registers: R"<<Rm.to_ulong()<<" = "<<op1;
+		cout<<", R"<<Rn.to_ulong()<<" = "<<op2;
+		cout<<endl;
+		ins=new Mul(Rd.to_ulong(),op1,op2);
+	}
 	else if(insCode[27]==0&&insCode[26]==0) 
 	{
 		bitset<4> opcode,Rn,Rm,Rd;
@@ -321,14 +342,14 @@ void decode()
 int main()
 {
 	ios_base::sync_with_stdio(false);
-	pc.open("input");
+	pc.open("INS.MEM");
 	while(1)
 	{
 		fetch();
 		if(pc.eof())
 			break;
 		decode();
-		ins->execute();	
+		ins->execute();
 		ins->memory();
 		ins->writeBack();
 		cout<<"\n";
