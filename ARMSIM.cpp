@@ -221,8 +221,6 @@ void decode()
 		else
 			offset=Im.to_ulong();
 		cout<<"Operation is B, Offset is "<<offset<<endl;
-		cout<<"Read flags: ";
-		cout<<"Z = "<<Z<<", N = "<<N<<", C = "<<C<<", V = "<<V<<endl;
 		switch(cond.to_ulong())
 		{
 			case 0 : cout<<"Condition is EQ\n";//EQ
@@ -246,12 +244,18 @@ void decode()
 			default: cout<<"Condition is AL\n";///AL
 				flag=true;
 		}
+		cout<<"Read flags: ";
+		cout<<"Z = "<<Z<<", N = "<<N<<", V = "<<V<<endl;
 		if(flag)
 		{
+			cout<<"Condition found True\n";
 			ins=new B(offset);	
 		}
 		else
+		{
+			cout<<"Condition found False\n";
 			ins=new Instruction();
+		}
 	}
 	else if(insCode[27]==0&&insCode[26]==1&&insCode[25]==0) // Immidiate 
 	{

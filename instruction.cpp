@@ -62,7 +62,7 @@ Cmp::Cmp(long op1, long op2)
 }
 void Cmp::execute()
 {
-	res = op2 - op1;
+	res = op1 - op2;
 	cout<<"EXECUTE: "<<"CMP "<<op1<<" and "<<op2<<"\n";
 }
 void Cmp::memory()
@@ -92,8 +92,8 @@ void Cmp::writeBack()
 		Z = false;
 		cout<<"Clear Z"<<endl;
 	}
-	if(op2>op1-LONG_MIN)
-	{	
+	if((long long)op2>(long long)op1-(long long)(-pow(2,31))||(long long)op2<(long long)op1-(long long)(pow(2,31)-1))
+	{
 		V = true;
 		cout<<"Set V"<<endl;
 	}
@@ -142,7 +142,8 @@ void Ldr::memory()
     ifstream data;
     data.open("DATA.MEM");
     data.seekg(address*32+offset*32,ios::beg);
-    data.get(numberString,32);
+    data.get(numberString,33);
+	cout<<numberString<<"\n";
     number = 0;
     for(int i=31;i>=0;i--)
         number += pow(2,31-i)*(int(numberString[i])-int('0'));
@@ -342,19 +343,20 @@ B::B(long offset)
 }
 void B::execute()
 {
-	address=insAddress+offset*4;
-	pc.seekg(0);
+	address=insAddress+4+offset*4;
+	pc.close();
+	pc.open("input");
 	long cnt=0;
 	char ch;
-	while(address!=0&&!pc.eof())
+	while(address!=-4&&!pc.eof())
 	{
 		pc.get(ch);
 		if(ch=='\n')
 			cnt++;
-		if(cnt==address/4-1)
+		if(cnt==address/4+1)
 			break;
 	}
-	cout<<"EXECUTE: Change program counter by "<<offset<<"\n";
+	cout<<"EXECUTE: Change program counter by "<<offset<<" "<<"\n";
 }
 void B::memory()
 {
@@ -380,7 +382,7 @@ void Swp::memory()
     fstream data;
     data.open("DATA.MEM");
     data.seekg(address*32,ios::beg);
-    data.get(numberString,32);
+    data.get(numberString,33);
     long numberTemp = 0;
     for(int i=31;i>=0;i--)
         numberTemp += pow(2,31-i)*(int(numberString[i])-int('0'));

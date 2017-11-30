@@ -1,26 +1,124 @@
-Fetch instruction 0xE3A01002 from address 0x0
-0 11100011101000000001000000000010
-DECODE: Operation is MOV, Immidiate operand is 2
-Destination register is R1
-EXECUTE: MOV 2 in R1
+Fetch instruction 0xE3A00000 from address 0x0
+0 11100011101000000000000000000000
+DECODE: Operation is MOV, Immidiate operand is 0
+Destination register is R0
+EXECUTE: MOV 0 in R0
 MEMORY: No memory operation
-WRITEBACK: write 2 to R1
+WRITEBACK: write 0 to R0
 
-Fetch instruction 0xE5801000 from address 0x4
-4 11100101100000000001000000000000
-DECODE: Operation is STR, Base address is R0, Immidiate offset is 0
-Source register is R1
-Read registers: R1 = 2, R0 = 0
-EXECUTE: No execute operation
-MEMORY: store 2 at 0 address in memory
-WRITEBACK: No write-back operation
-
-Fetch instruction 0xE5902000 from address 0x8
-8 11100101100100000010000000000000
-DECODE: Operation is LDR, Base address is R0, Immidiate offset is 0
-Destination register is R2
+Fetch instruction 0xE3500003 from address 0x4
+4 11100011010100000000000000000011
+DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
 Read registers: R0 = 0
-EXECUTE: No execute operation
-MEMORY: -46 loaded from 0 address in memory
-WRITEBACK: write -46 to R2
+EXECUTE: CMP 0 and 3
+MEMORY: No memory operation
+WRITEBACK: Set N
+Clear Z
+Clear V
 
+Fetch instruction 0xAA000001 from address 0x8
+8 10101010000000000000000000000001
+DECODE: Operation is B, Offset is 1
+Read flags: Z = 0, N = 1, C = 0, V = 0
+Condition is GE
+Parent execute
+
+Fetch instruction 0xE2800001 from address 0xc
+12 11100010100000000000000000000001
+DECODE: Operation is ADD, First operand is R0, Immidiate second operand is 1
+Destination register is R0
+Read registers: R0 = 0
+EXECUTE: ADD 0 and 1
+MEMORY: No memory operation
+WRITEBACK: write 1 to R0
+
+Fetch instruction 0xEAFFFFFB from address 0x10
+16 11101010111111111111111111111011
+DECODE: Operation is B, Offset is -5
+Read flags: Z = 0, N = 1, C = 0, V = 0
+Condition is AL
+EXECUTE: Change program counter by -5 
+MEMORY: No memory operationWRITEBACK: No writeback operation
+Fetch instruction 0xE3500003 from address 0x4
+4 11100011010100000000000000000011
+DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
+Read registers: R0 = 1
+EXECUTE: CMP 1 and 3
+MEMORY: No memory operation
+WRITEBACK: Set N
+Clear Z
+Clear V
+
+Fetch instruction 0xAA000001 from address 0x8
+8 10101010000000000000000000000001
+DECODE: Operation is B, Offset is 1
+Read flags: Z = 0, N = 1, C = 0, V = 0
+Condition is GE
+Parent execute
+
+Fetch instruction 0xE2800001 from address 0xc
+12 11100010100000000000000000000001
+DECODE: Operation is ADD, First operand is R0, Immidiate second operand is 1
+Destination register is R0
+Read registers: R0 = 1
+EXECUTE: ADD 1 and 1
+MEMORY: No memory operation
+WRITEBACK: write 2 to R0
+
+Fetch instruction 0xEAFFFFFB from address 0x10
+16 11101010111111111111111111111011
+DECODE: Operation is B, Offset is -5
+Read flags: Z = 0, N = 1, C = 0, V = 0
+Condition is AL
+EXECUTE: Change program counter by -5 
+MEMORY: No memory operationWRITEBACK: No writeback operation
+Fetch instruction 0xE3500003 from address 0x4
+4 11100011010100000000000000000011
+DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
+Read registers: R0 = 2
+EXECUTE: CMP 2 and 3
+MEMORY: No memory operation
+WRITEBACK: Set N
+Clear Z
+Clear V
+
+Fetch instruction 0xAA000001 from address 0x8
+8 10101010000000000000000000000001
+DECODE: Operation is B, Offset is 1
+Read flags: Z = 0, N = 1, C = 0, V = 0
+Condition is GE
+Parent execute
+
+Fetch instruction 0xE2800001 from address 0xc
+12 11100010100000000000000000000001
+DECODE: Operation is ADD, First operand is R0, Immidiate second operand is 1
+Destination register is R0
+Read registers: R0 = 2
+EXECUTE: ADD 2 and 1
+MEMORY: No memory operation
+WRITEBACK: write 3 to R0
+
+Fetch instruction 0xEAFFFFFB from address 0x10
+16 11101010111111111111111111111011
+DECODE: Operation is B, Offset is -5
+Read flags: Z = 0, N = 1, C = 0, V = 0
+Condition is AL
+EXECUTE: Change program counter by -5 
+MEMORY: No memory operationWRITEBACK: No writeback operation
+Fetch instruction 0xE3500003 from address 0x4
+4 11100011010100000000000000000011
+DECODE: Operation is CMP, First operand is R0, Immidiate second operand is 3
+Read registers: R0 = 3
+EXECUTE: CMP 3 and 3
+MEMORY: No memory operation
+WRITEBACK: Clear N
+Set Z
+Clear V
+
+Fetch instruction 0xAA000001 from address 0x8
+8 10101010000000000000000000000001
+DECODE: Operation is B, Offset is 1
+Read flags: Z = 1, N = 0, C = 0, V = 0
+Condition is GE
+EXECUTE: Change program counter by 1 
+MEMORY: No memory operationWRITEBACK: No writeback operation
